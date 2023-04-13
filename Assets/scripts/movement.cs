@@ -9,6 +9,7 @@ public class movement : MonoBehaviour
     private float moveSped;
     public float walkSped;
     public float sprintSped;
+    public float stamina; 
     
     [Header("Input related")]
     public Transform orientation;
@@ -80,6 +81,7 @@ public class movement : MonoBehaviour
         //checking to see if player is grounded
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHei * 0.5f + 0.2F, whatIsGround);
         
+        //manipulates drag depending on if grounded or not
         if (grounded)
         {
             rb.drag = groundDrag;
@@ -90,7 +92,7 @@ public class movement : MonoBehaviour
         myInput();
         stateHandler();
         
-        Debug.Log(moveSped);
+        // Debug.Log(moveSped);
     }
 
     private void FixedUpdate()
@@ -138,10 +140,11 @@ public class movement : MonoBehaviour
         }
         
         //sprinting
-        else if (grounded && Input.GetKey(keyBinds[1].keyCode))
+        else if (grounded && Input.GetKey(keyBinds[1].keyCode) && stamina > 0)
         {
             currentState = moveState.sprinting;
             moveSped = sprintSped;
+            stamina -= 0.5f;
         }
         
         //walking
