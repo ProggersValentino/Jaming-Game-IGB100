@@ -6,22 +6,16 @@ using UnityEngine;
 public class collision : MonoBehaviour
 {
     private bool isSafe = false;
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="other"></param>
+    public healthMan stats;
+    public float damage;
+
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Darkness"))
         {
-            // Destroy(gameObject);
+           stats.TakeDamage(damage);
             
-            Debug.Log("we working");
+           Debug.Log(stats.currentHealth);
         }
     }
-
-    // private void OnTriggerExit(Collider other)
-    // {
-    //     throw new NotImplementedException();
-    // }
 }
