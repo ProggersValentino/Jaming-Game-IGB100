@@ -10,7 +10,7 @@ public class healthMan : ScriptableObject
     public float currentHealth = 100;
     public float maxHealth;
 
-    private void Awake()
+    private void Start()
     {
         currentHealth = maxHealth;
     }
@@ -22,13 +22,14 @@ public class healthMan : ScriptableObject
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            Debug.Log("dead");
             die();
         }
     }
 
     public void die()
     {
-        Destroy(this.GameObject());
+        Destroy(this);
     }
 
 
