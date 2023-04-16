@@ -6,6 +6,7 @@ public class gunBehav : MonoBehaviour
 {
     //accessing the data from the scriptable object
     public GStatsSO gunType;
+    public LayerMask whatIsEnemy;
     
     //bools
     bool shooting, RTS, reloading; //RTS = ready to shoot
@@ -14,7 +15,7 @@ public class gunBehav : MonoBehaviour
     
     //references
     public Camera fpsCam;
-    
+    public RaycastHit rayHit;
     public Transform ProjLaunchPoint;
     
     //references
@@ -61,12 +62,18 @@ public class gunBehav : MonoBehaviour
         if(RTS && shooting && !reloading && bulletsLeft > 0)
         {
             //set bullets shot to 0
-            bulletsShot = 0;
+            bulletsShot = gunType.bulletsPerTap;
 
-            fire();
+            if (gunType.projectileBased && !gunType.rayBased)
+            {
+                fire();
+            }
+            else if(!gunType.projectileBased && gunType.rayBased) fireNonProj();
+            
         }
     }
-
+    
+    //shooting done through projectiles
     void fire()
     {
         RTS = false;
@@ -123,6 +130,39 @@ public class gunBehav : MonoBehaviour
         if (bulletsShot < gunType.bulletsPerTap && bulletsLeft > 0)
         {
             Invoke("fire", gunType.TBShots);
+        }
+
+    }
+    
+    //shooting is done through raycasting 
+    void fireNonProj()
+    {
+        RTS = false;
+        
+        float x = Random.Range(-gunType.spread, gunType.spread);
+        float y = Random.Range(-gunType.spread, gunType.spread);
+        
+        //calculate new direction with spread
+        Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0f); //just dd spread spread to last
+
+        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, gunType.range,
+                whatIsEnemy))
+        {
+            if (rayHit.collider.CompareTag("Enemy"))
+            {
+                Debug.Log(rayHit.collider.name);
+                rayHit.collider.GetComponent<enemyCollision>().TakeDamage(gunType.dmg);
+            }
+        }
+        bulletsLeft--;
+        
+        //invoke resetShot function (if not already invoked), with your TbShooting
+        if (allowInvoke)
+        {
+            Invoke("ResetShot", gunType.TBShooting);
+            allowInvoke = false;
+
+            playerRb.AddForce(-direction.normalized * gunType.recoilForce, ForceMode.Impulse); //adds recoil to gun. this has been placed so it only happens once every tap
         }
 
     }

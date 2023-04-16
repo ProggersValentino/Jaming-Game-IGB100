@@ -16,6 +16,7 @@ public class BStatsSO : ScriptableObject
     public bool usesGravity;
 
     //damage
+    public int directDmg;
     public int explosionDmg;
     public float explosionRnge;
     public float explosionFce;

@@ -40,7 +40,13 @@ public class bulletBehav : MonoBehaviour
         collisions++;
 
         // //explode if bullet hits an enemy directly and explodeOnTouch is activated
-        // if(collision.collider.CompareTag("Enemy") && bulletType.explodeOnTouch) explode();
+        if(collision.collider.CompareTag("Enemy") && bulletType.explodeOnTouch) explode();
+
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            GetComponent<enemyCollision>().TakeDamage(bulletType.directDmg);
+            Debug.Log("direct hit");
+        }
     }
 
     void explode()
@@ -51,24 +57,30 @@ public class bulletBehav : MonoBehaviour
         }
 
         // //check for enemies
-        // Collider[] enemies = Physics.OverlapSphere(transform.position, bulletType.explosionRnge, bulletType.whatIsEnemies);
-        // for (int i = 0; i < enemies.Length; i++)
-        // {
-        //     //Get component of enemy and call TakeDamage
-        //
-        //     //eg 
-        //     //enemies[i].GetComponent<ShootingAi>().TakeDamage(explosionDamage)
-        //
-        //     //add explosion force to enemy (if enemy has a rigid body)
-        //     if(enemies[i].GetComponent<Rigidbody>())
-        //     {
-        //         enemies[i].GetComponent<Rigidbody>().AddExplosionForce(bulletType.explosionFce, transform.position, bulletType.explosionRnge);
-        //     }
-        // }
+        Collider[] enemies = Physics.OverlapSphere(transform.position, bulletType.explosionRnge, bulletType.whatIsEnemies);
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            //Get component of enemy and call TakeDamage
+        
+            
+            enemies[i].GetComponent<enemyCollision>().TakeDamage(bulletType.explosionDmg);
+        
+            //add explosion force to enemy (if enemy has a rigid body)
+            if(enemies[i].GetComponent<Rigidbody>())
+            {
+                enemies[i].GetComponent<Rigidbody>().AddExplosionForce(bulletType.explosionFce, transform.position, bulletType.explosionRnge);
+            }
+        }
 
         // //checking to saee if works 
         // Invoke("Delay", 0.05f);
         Destroy(gameObject);
+    }
+
+    //directdamage
+    void applyDirectD()
+    {
+        
     }
 
     void Delay()
