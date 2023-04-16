@@ -9,7 +9,8 @@ public class gunBehav : MonoBehaviour
     public LayerMask whatIsEnemy;
     
     //bools
-    bool shooting, RTS, reloading; //RTS = ready to shoot
+    private bool shooting, RTS, reloading; //RTS = ready to shoot
+    public bool isPlayer;
 
     private int bulletsLeft, bulletsShot;
     
@@ -33,7 +34,11 @@ public class gunBehav : MonoBehaviour
 
     private void Update() 
     {
-        PInput();
+        if (isPlayer)
+        {
+            PInput();    
+        }
+        
 
         // //set ammo display, it exists
         // if(ammoDisplay != null)
@@ -74,7 +79,7 @@ public class gunBehav : MonoBehaviour
     }
     
     //shooting done through projectiles
-    void fire()
+    public void fire()
     {
         RTS = false;
 

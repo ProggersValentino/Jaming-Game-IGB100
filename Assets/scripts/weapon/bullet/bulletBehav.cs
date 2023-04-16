@@ -77,16 +77,10 @@ public class bulletBehav : MonoBehaviour
         Destroy(gameObject);
     }
 
-    //directdamage
-    void applyDirectD()
-    {
-        
-    }
-
-    void Delay()
-    {
-        Destroy(gameObject);
-    }
+    // void Delay()
+    // {
+    //     Destroy(gameObject);
+    // }
 
     void Setup()
     {

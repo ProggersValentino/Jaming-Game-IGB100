@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 6927496925786981085}
   - component: {fileID: 6927496925786981086}
   - component: {fileID: 6927496925786981074}
-  m_Layer: 0
+  - component: {fileID: 290658295}
+  m_Layer: 7
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -104,6 +105,21 @@ MonoBehaviour:
   - action: crouch
     keyCode: 306
   currentState: 0
+--- !u!114 &290658295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6927496925786981087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49d71952aa26c840adda705331b0139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: e4470fa7416634e4ab1a56ab027cff9c, type: 2}
+  damage: 0.1
+  currentHealth: 0
 --- !u!1 &6927496925864470632
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6927496925864470639}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: camPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +163,7 @@ GameObject:
   - component: {fileID: 6927496926174456015}
   - component: {fileID: 6927496926174456008}
   - component: {fileID: 6927496926174456009}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: mainbody
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -242,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6927496926385428510}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +292,7 @@ GameObject:
   - component: {fileID: 6927496927280256568}
   - component: {fileID: 6927496927280256569}
   - component: {fileID: 6927496927280256570}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: sunnys
   m_TagString: Untagged
   m_Icon: {fileID: 0}
