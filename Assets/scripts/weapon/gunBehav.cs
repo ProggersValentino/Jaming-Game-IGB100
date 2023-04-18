@@ -158,6 +158,11 @@ public class gunBehav : MonoBehaviour
                 Debug.Log(rayHit.collider.name);
                 rayHit.collider.GetComponent<enemyCollision>().TakeDamage(gunType.dmg);
             }
+
+            else if (rayHit.collider.CompareTag("Darkness"))
+            {
+                Debug.Log(rayHit.collider.name);
+            }
         }
         bulletsLeft--;
         
