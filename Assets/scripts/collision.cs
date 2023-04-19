@@ -9,21 +9,27 @@ public class collision : MonoBehaviour
     public healthMan stats;
     public float damage;
     public float currentHealth;
+    public float dmgTick;
 
     private void Start()
     {
         currentHealth = stats.maxHealth;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnParticleCollision(GameObject other)
     {
         if (other.CompareTag("Darkness"))
         {
-           TakeDamage(damage);
+            StartCoroutine(darkOT());
             
-           Debug.Log(currentHealth);
+            Debug.Log(currentHealth);
         }
     }
+
+    // private void OnTriggerStay(Collider other)
+    // {
+    //    
+    // }
     
     public void TakeDamage(float damage)
     {
@@ -40,5 +46,12 @@ public class collision : MonoBehaviour
     public void die()
     {
         Destroy(gameObject);
+    }
+
+    IEnumerator darkOT()
+    {
+        TakeDamage(damage);
+
+        yield return new WaitForSeconds(dmgTick);
     }
 }
