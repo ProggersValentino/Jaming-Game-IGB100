@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 5255236568349397952}
   - component: {fileID: 6282793844736869682}
   - component: {fileID: 7680790392967523691}
+  - component: {fileID: -8752144896350886514}
   - component: {fileID: 2869419113532120166}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShadowBox
-  m_TagString: Untagged
+  m_TagString: Darkness
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,6 +86,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-8752144896350886514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3001564584997393008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcf3309b22e909b4e82e4de9c5bf21c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 40d19f5a6c6fb144caa99034b1fcf5bb, type: 2}
+  damage: 0
+  currentHealth: 0
 --- !u!65 &2869419113532120166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -93,7 +109,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3001564584997393008}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -109,7 +125,7 @@ GameObject:
   - component: {fileID: 2145723321246017377}
   - component: {fileID: 3241164269617282937}
   - component: {fileID: 3550506562856357710}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +163,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 1
+  prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -213,7 +229,7 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 10
       minScalar: 5
       maxCurve:
@@ -383,7 +399,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -436,7 +452,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -489,7 +505,7 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -767,7 +783,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1000, y: 5, z: 1000}
+    m_Scale: {x: 5, y: 5, z: 5}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -965,7 +981,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100000
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -3712,13 +3728,14 @@ ParticleSystem:
   CollisionModule:
     enabled: 0
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
-    multiplyColliderForceByParticleSpeed: 0
+    multiplyColliderForceByParticleSpeed: 1
     multiplyColliderForceByCollisionAngle: 1
-    m_Planes: []
+    m_Planes:
+    - {fileID: 0}
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
@@ -3883,11 +3900,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 128
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -3899,7 +3916,8 @@ ParticleSystem:
     exit: 0
     colliderQueryMode: 0
     radiusScale: 1
-    primitives: []
+    primitives:
+    - {fileID: 0}
   SubModule:
     serializedVersion: 2
     enabled: 0

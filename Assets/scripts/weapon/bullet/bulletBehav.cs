@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class bulletBehav : MonoBehaviour
@@ -38,15 +40,22 @@ public class bulletBehav : MonoBehaviour
     {
         //count up collisions
         collisions++;
-
+    
         // //explode if bullet hits an enemy directly and explodeOnTouch is activated
         if(collision.collider.CompareTag("Enemy") && bulletType.explodeOnTouch) explode();
-
+    
         if (collision.collider.CompareTag("Enemy"))
         {
             GetComponent<enemyCollision>().TakeDamage(bulletType.directDmg);
             Debug.Log("direct hit");
         }
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        //count up collisions
+        collisions++;
+        Debug.Log(collisions);
     }
 
     void explode()

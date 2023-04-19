@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0eeb14914b9262b47b0c9299a8cf0f50, type: 3}
-  m_Name: AK47 (eg)
+  m_Name: yes
   m_EditorClassIdentifier: 
-  projectileBased: 0
-  rayBased: 1
+  projectileBased: 1
+  rayBased: 0
   bullet: {fileID: 3332197088016315777, guid: 734cdbe06c967ee45b1cd860930417f4, type: 3}
-  shootForce: 300
+  shootForce: 20
   upwardForce: 0
-  TBShooting: 0.1
+  TBShooting: 1
   spread: 0
-  reloadT: 1.5
-  TBShots: 0
+  reloadT: 1
+  TBShots: 1
   magSize: 20
-  bulletsPerTap: 1
+  bulletsPerTap: 0
   allowButtonHold: 1
-  range: 20
-  dmg: 20
+  range: 0
+  dmg: 0
   recoilForce: 0
-  showBulletVariables: 0
+  showBulletVariables: 1
   showRaycastVariables: 0

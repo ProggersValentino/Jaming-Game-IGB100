@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class gunBehav : MonoBehaviour
@@ -24,12 +25,19 @@ public class gunBehav : MonoBehaviour
     
     //fixing of bugs 
     public bool allowInvoke = true;
+    
+    //dark
+    private darknessHealth fogHP;
+    
+    //laser beam
+    public LineRenderer laserLine; 
     private void Awake() 
     {
 
         //ensuring mags are full
         bulletsLeft = gunType.magSize;
         RTS = true;
+        // laserLine = GetComponent<LineRenderer>();
     }
 
     private void Update() 
@@ -143,16 +151,19 @@ public class gunBehav : MonoBehaviour
     void fireNonProj()
     {
         RTS = false;
+
+        
         
         float x = Random.Range(-gunType.spread, gunType.spread);
         float y = Random.Range(-gunType.spread, gunType.spread);
         
         //calculate new direction with spread
         Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0f); //just dd spread spread to last
-
+        
         if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, gunType.range,
                 whatIsEnemy))
         {
+            
             if (rayHit.collider.CompareTag("Enemy"))
             {
                 Debug.Log(rayHit.collider.name);
@@ -162,7 +173,21 @@ public class gunBehav : MonoBehaviour
             else if (rayHit.collider.CompareTag("Darkness"))
             {
                 Debug.Log(rayHit.collider.name);
+                rayHit.collider.GetComponent<darknessHealth>().TakeDamage(gunType.dmg);
+                Debug.Log(rayHit.collider.GetComponent<darknessHealth>().currentHealth);
             }
+
+            // draw the laser line between the camera and the hit point
+            laserLine.SetPosition(0, ProjLaunchPoint.position);
+            laserLine.SetPosition(1, rayHit.point);
+        }
+        else
+        {
+            // if the raycast did not hit anything, draw the laser line to the maximum range
+            Vector3 endpoint = fpsCam.transform.position + (direction * gunType.range);
+            laserLine.SetPosition(0, ProjLaunchPoint.position);
+            laserLine.SetPosition(1, endpoint);
+        
         }
         bulletsLeft--;
         

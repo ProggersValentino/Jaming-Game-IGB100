@@ -15,18 +15,18 @@ public class collision : MonoBehaviour
     {
         currentHealth = stats.maxHealth;
     }
+    
 
-    private void OnParticleCollision(GameObject other)
-    {
-        if (other.CompareTag("Darkness"))
-        {
-            StartCoroutine(darkOT());
-            
-            Debug.Log(currentHealth);
-        }
-    }
+   private void OnTriggerStay(Collider other)
+   {
+       if (other.CompareTag("Darkness"))
+       {
+           StartCoroutine(darkOT());
+           Debug.Log(currentHealth);
+       }
+   }
 
-    // private void OnTriggerStay(Collider other)
+   // private void OnTriggerStay(Collider other)
     // {
     //    
     // }
@@ -50,8 +50,9 @@ public class collision : MonoBehaviour
 
     IEnumerator darkOT()
     {
+        yield return new WaitForSeconds(dmgTick);
         TakeDamage(damage);
 
-        yield return new WaitForSeconds(dmgTick);
+        
     }
 }
