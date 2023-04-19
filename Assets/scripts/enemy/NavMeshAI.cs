@@ -51,7 +51,7 @@ public class NavMeshAI : MonoBehaviour
         //setting the ranges for the sight range and attack range of the AI 
         playerISRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerIARange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-        
+        [Ser]
         //checks for different enemy states 
         if(!playerISRange && !playerIARange)
         {
