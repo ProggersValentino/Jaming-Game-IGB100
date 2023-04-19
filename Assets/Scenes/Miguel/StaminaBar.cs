@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class StaminaBar : MonoBehaviour
 {
 
+// Stamina
 public Slider staminaBar;
+public movement stamina;
 
-private int maxStamina = 100;
-private int currentStamina;
+//Health
+public Slider healthBar;
+[SerializeField] collision hs;
 
 public static StaminaBar instance;
 
@@ -22,21 +25,14 @@ private void Awake()
     
 void Start()
 {
-       currentStamina = maxStamina;
-       staminaBar.maxValue = maxStamina;
-       staminaBar.value = maxStamina;
+       staminaBar.maxValue = stamina.stamina;
+        healthBar.maxValue = hs.currentHealth;
 }
 
-  public void UseStamina(int amount)
-  {
-        if(currentStamina - amount >= 0)
-        {
-            currentStamina -= amount;
-            staminaBar.value = currentStamina;
-        }
-        else
-        {
-            Debug.Log("Not Enough Stamnina");
-        }
-  }
+void Update()
+{
+    staminaBar.value = stamina.stamina;
+    healthBar.value = hs.currentHealth;
+}
+
 }
