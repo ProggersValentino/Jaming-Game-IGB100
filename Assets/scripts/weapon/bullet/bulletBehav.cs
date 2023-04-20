@@ -42,26 +42,35 @@ public class bulletBehav : MonoBehaviour
         collisions++;
     
         // //explode if bullet hits an enemy directly and explodeOnTouch is activated
-        if(collision.collider.CompareTag("Enemy") && bulletType.explodeOnTouch) explode();
+        if (collision.collider.CompareTag("Enemy") && bulletType.explodeOnTouch)
+        {
+            Debug.Log("explode");
+            explode();
+        }
+        if (collision.collider.CompareTag("Player") && bulletType.explodeOnTouch)
+        {
+            Debug.Log("explode");
+            explode();
+        }
     
-        if (collision.collider.CompareTag("Enemy"))
-        {
-            GetComponent<enemyCollision>().TakeDamage(bulletType.directDmg);
-            Debug.Log("direct hit");
-        }
-        else if (collision.collider.CompareTag("Player"))
-        {
-            GetComponent<collision>().TakeDamage(bulletType.explosionDmg);
-            Debug.Log("enemy hi");
-        }
+        // if (collision.collider.CompareTag("Enemy"))
+        // {
+        //     GetComponent<enemyCollision>().TakeDamage(bulletType.directDmg);
+        //     Debug.Log("direct hit");
+        // }
+        // else if (collision.collider.CompareTag("Player"))
+        // {
+        //     GetComponent<collision>().TakeDamage(bulletType.explosionDmg);
+        //     Debug.Log("enemy hi");
+        // }
     }
 
-    private void OnParticleCollision(GameObject other)
-    {
-        //count up collisions
-        collisions++;
-        Debug.Log(collisions);
-    }
+    // private void OnParticleCollision(GameObject other)
+    // {
+    //     //count up collisions
+    //     collisions++;
+    //     Debug.Log(collisions);
+    // }
 
     void explode()
     {
@@ -71,19 +80,24 @@ public class bulletBehav : MonoBehaviour
         }
 
         // //check for enemies
-        Collider[] enemies = Physics.OverlapSphere(transform.position, bulletType.explosionRnge, bulletType.whatIsEnemies);
+        // Collider[] enemies = Physics.OverlapSphere(transform.position, bulletType.explosionRnge, bulletType.whatIsEnemies);
         Collider[] player = Physics.OverlapSphere(transform.position, bulletType.explosionRnge, bulletType.whatIsEnemies);
-        for (int i = 0; i < enemies.Length; i++)
+        for (int i = 0; i < player.Length; i++)
         {
             //Get component of enemy and call TakeDamage
         
             
-            enemies[i].GetComponent<enemyCollision>().TakeDamage(bulletType.explosionDmg);
-        
+            // enemies[i].GetComponent<enemyCollision>().TakeDamage(bulletType.explosionDmg);
+            player[i].GetComponent<collision>().TakeDamage(bulletType.explosionDmg);
             //add explosion force to enemy (if enemy has a rigid body)
-            if(enemies[i].GetComponent<Rigidbody>())
+            // if(enemies[i].GetComponent<Rigidbody>())
+            // {
+            //     enemies[i].GetComponent<Rigidbody>().AddExplosionForce(bulletType.explosionFce, transform.position, bulletType.explosionRnge);
+            // }
+            
+            if(player[i].GetComponent<Rigidbody>())
             {
-                enemies[i].GetComponent<Rigidbody>().AddExplosionForce(bulletType.explosionFce, transform.position, bulletType.explosionRnge);
+                player[i].GetComponent<Rigidbody>().AddExplosionForce(bulletType.explosionFce, transform.position, bulletType.explosionRnge);
             }
         }
 

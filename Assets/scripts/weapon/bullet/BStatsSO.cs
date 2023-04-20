@@ -17,7 +17,7 @@ public class BStatsSO : ScriptableObject
 
     //damage
     public int directDmg;
-    public int explosionDmg;
+    public float explosionDmg;
     public float explosionRnge;
     public float explosionFce;
 

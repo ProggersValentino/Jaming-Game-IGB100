@@ -14,6 +14,14 @@ public class enemyCollision : MonoBehaviour
         currentHealth = stats.maxHealth;
     }
 
+    // private void OnCollisionEnter(Collision other)
+    // {
+    //     if (other.collider.CompareTag("bullet"))
+    //     {
+    //         TakeDamage(damage);
+    //     }
+    // }
+
     public void TakeDamage(float damage)
     {
         
