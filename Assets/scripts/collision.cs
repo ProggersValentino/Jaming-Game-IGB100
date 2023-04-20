@@ -25,6 +25,7 @@ public class collision : MonoBehaviour
            Debug.Log(currentHealth);
        }
    }
+   
 
    // private void OnTriggerStay(Collider other)
     // {

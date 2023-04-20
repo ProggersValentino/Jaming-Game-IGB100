@@ -49,6 +49,11 @@ public class bulletBehav : MonoBehaviour
             GetComponent<enemyCollision>().TakeDamage(bulletType.directDmg);
             Debug.Log("direct hit");
         }
+        else if (collision.collider.CompareTag("Player"))
+        {
+            GetComponent<collision>().TakeDamage(bulletType.explosionDmg);
+            Debug.Log("enemy hi");
+        }
     }
 
     private void OnParticleCollision(GameObject other)
@@ -67,6 +72,7 @@ public class bulletBehav : MonoBehaviour
 
         // //check for enemies
         Collider[] enemies = Physics.OverlapSphere(transform.position, bulletType.explosionRnge, bulletType.whatIsEnemies);
+        Collider[] player = Physics.OverlapSphere(transform.position, bulletType.explosionRnge, bulletType.whatIsEnemies);
         for (int i = 0; i < enemies.Length; i++)
         {
             //Get component of enemy and call TakeDamage
