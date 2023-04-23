@@ -83,14 +83,14 @@ public class gunBehav : MonoBehaviour
             }
             else if (!gunType.projectileBased && gunType.rayBased)
             {
-                laserLine.enabled = true;
+                laserLine.enabled = true; //enables laser when player is firing
                 fireNonProj();
             }
             
         }
         else
         {
-            laserLine.enabled = false;
+            laserLine.enabled = false; //disables laser when player stops pressing fire button
         }
     }
     
