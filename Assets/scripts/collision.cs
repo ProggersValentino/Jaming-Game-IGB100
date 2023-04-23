@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class collision : MonoBehaviour
 {
     private bool isSafe = false;
     public healthMan stats;
-    public float damage;
+    public float darkDmg;
+    public float physicalDmg;
     public float currentHealth;
     public float dmgTick;
 
@@ -25,14 +27,18 @@ public class collision : MonoBehaviour
            Debug.Log(currentHealth);
        }
    }
-   
 
-   // private void OnTriggerStay(Collider other)
-    // {
-    //    
-    // }
-    
-    public void TakeDamage(float damage)
+
+   private void OnCollisionEnter(Collision other)
+   {
+       if (other.collider.CompareTag("Enemy"))
+       {
+           TakeDamage(physicalDmg);
+           Debug.Log(currentHealth);
+       }
+   }
+
+   public void TakeDamage(float damage)
     {
         currentHealth -= damage;
 
@@ -52,7 +58,7 @@ public class collision : MonoBehaviour
     IEnumerator darkOT()
     {
         yield return new WaitForSeconds(dmgTick);
-        TakeDamage(damage);
+        TakeDamage(darkDmg);
 
         
     }

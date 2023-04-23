@@ -14,13 +14,13 @@ public class enemyCollision : MonoBehaviour
         currentHealth = stats.maxHealth;
     }
 
-    // private void OnCollisionEnter(Collision other)
-    // {
-    //     if (other.collider.CompareTag("bullet"))
-    //     {
-    //         TakeDamage(damage);
-    //     }
-    // }
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.CompareTag("Player"))
+        {
+            TakeDamage(damage);
+        }
+    }
 
     public void TakeDamage(float damage)
     {
@@ -38,6 +38,7 @@ public class enemyCollision : MonoBehaviour
 
     public void die()
     {
+        GetComponent<LootBag>().spawnPU(transform.position);
         Destroy(gameObject);
     }
 }

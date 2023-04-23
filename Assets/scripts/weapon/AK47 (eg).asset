@@ -17,11 +17,11 @@ MonoBehaviour:
   bullet: {fileID: 3332197088016315777, guid: 734cdbe06c967ee45b1cd860930417f4, type: 3}
   shootForce: 300
   upwardForce: 0
-  TBShooting: 0.1
+  TBShooting: 0
   spread: 0
   reloadT: 1.5
   TBShots: 0
-  magSize: 20
+  magSize: 1000
   bulletsPerTap: 1
   allowButtonHold: 1
   range: 20

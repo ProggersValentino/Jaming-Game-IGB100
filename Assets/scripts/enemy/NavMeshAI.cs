@@ -121,8 +121,8 @@ public class NavMeshAI : MonoBehaviour
         if(!attackDone)
         {
             //spawns bullet
-            gun.GetComponent<gunBehav>().fire(); //accesses the gun behave data script from enemy gun 
-            
+            // gun.GetComponent<gunBehav>().fire(); //accesses the gun behave data script from enemy gun 
+            Debug.Log("attacking p");
             attackDone = true;
             Invoke(nameof(resetAtt), timeBetweenAttacks);
         }

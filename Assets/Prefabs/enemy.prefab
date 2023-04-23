@@ -204,7 +204,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 4591263576231663890}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -230,6 +230,7 @@ MonoBehaviour:
   ProjLaunchPoint: {fileID: 1858502063764161331}
   playerRb: {fileID: 4721208179975993552}
   allowInvoke: 0
+  laserLine: {fileID: 0}
 --- !u!1 &4721208179975993553
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +247,7 @@ GameObject:
   - component: {fileID: 4721208179975993567}
   - component: {fileID: 4721208179975993561}
   - component: {fileID: 4721208179975993566}
+  - component: {fileID: 2534274888250105323}
   m_Layer: 6
   m_Name: enemy
   m_TagString: Enemy
@@ -330,7 +332,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 1
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -363,7 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: c9de502ae490cab4b8eea0393976acc4, type: 2}
-  damage: 0
+  damage: 100
 --- !u!195 &4721208179975993561
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -417,6 +419,20 @@ MonoBehaviour:
   attackRange: 0
   playerISRange: 0
   playerIARange: 0
+--- !u!114 &2534274888250105323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4721208179975993553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb28afc1b324cd4f8c301634890e8fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PUGen: {fileID: 2005718570277215351, guid: b87aa5510bae38e4aadfb64907068142, type: 3}
+  lootList: []
 --- !u!1 &5648149675861437851
 GameObject:
   m_ObjectHideFlags: 0

@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 2279686392982502913}
   m_Layer: 0
   m_Name: playcam
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -327,7 +327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2279686394109911345}
-  - component: {fileID: 2279686394109911346}
+  - component: {fileID: 1241889399}
   m_Layer: 0
   m_Name: CamMan
   m_TagString: Untagged
@@ -352,7 +352,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2279686394109911346
+--- !u!114 &1241889399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -406,6 +406,11 @@ PrefabInstance:
     - target: {fileID: 3969941698768016067, guid: 00519869ee61d104f845949f6f72fb5d,
         type: 3}
       propertyPath: playerRb
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969941698768016067, guid: 00519869ee61d104f845949f6f72fb5d,
+        type: 3}
+      propertyPath: laserLine
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3969941698768016067, guid: 00519869ee61d104f845949f6f72fb5d,

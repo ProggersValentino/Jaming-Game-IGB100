@@ -81,8 +81,16 @@ public class gunBehav : MonoBehaviour
             {
                 fire();
             }
-            else if(!gunType.projectileBased && gunType.rayBased) fireNonProj();
+            else if (!gunType.projectileBased && gunType.rayBased)
+            {
+                laserLine.enabled = true;
+                fireNonProj();
+            }
             
+        }
+        else
+        {
+            laserLine.enabled = false;
         }
     }
     
@@ -151,7 +159,7 @@ public class gunBehav : MonoBehaviour
     void fireNonProj()
     {
         RTS = false;
-
+        // laserLine.enabled = true;
         
         
         float x = Random.Range(-gunType.spread, gunType.spread);
@@ -199,7 +207,9 @@ public class gunBehav : MonoBehaviour
 
             playerRb.AddForce(-direction.normalized * gunType.recoilForce, ForceMode.Impulse); //adds recoil to gun. this has been placed so it only happens once every tap
         }
-
+        
+        
+        // laserLine.enabled = false;
     }
 
     void ResetShot()
