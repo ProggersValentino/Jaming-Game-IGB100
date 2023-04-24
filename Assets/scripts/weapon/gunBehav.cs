@@ -12,8 +12,9 @@ public class gunBehav : MonoBehaviour
     //bools
     private bool shooting, RTS, reloading; //RTS = ready to shoot
     public bool isPlayer;
+    public bool usingLight;
 
-    private int bulletsLeft, bulletsShot;
+    public int bulletsLeft, bulletsShot;
     
     //references
     public Camera fpsCam;
@@ -198,6 +199,7 @@ public class gunBehav : MonoBehaviour
         
         }
         bulletsLeft--;
+        Debug.Log(bulletsLeft);
         
         //invoke resetShot function (if not already invoked), with your TbShooting
         if (allowInvoke)
@@ -221,8 +223,12 @@ public class gunBehav : MonoBehaviour
 
     void reload()
     {
-        reloading = true;
-        Invoke("ReloadFinished", gunType.reloadT);
+        if (!usingLight)
+        {
+            reloading = true;
+            Invoke("ReloadFinished", gunType.reloadT);    
+        }
+        
     }
 
     void ReloadFinished()

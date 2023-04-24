@@ -39,7 +39,7 @@ public class temporaryBuff : PowerUpSO
     {
         if (buffSelection == buffType.ammunition)
         {
-            target.GetComponentInChildren<gunBehav>().gunType.magSize += amount;
+            target.GetComponentInChildren<gunBehav>().bulletsLeft += amount;
         }
         else if (buffSelection == buffType.health)
         {

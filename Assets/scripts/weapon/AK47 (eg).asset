@@ -25,7 +25,7 @@ MonoBehaviour:
   bulletsPerTap: 1
   allowButtonHold: 1
   range: 20
-  dmg: 0.1
+  dmg: 1
   recoilForce: 0
   showBulletVariables: 0
   showRaycastVariables: 0
