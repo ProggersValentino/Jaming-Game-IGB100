@@ -226,6 +226,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   isPlayer: 0
+  usingLight: 0
+  bulletsLeft: 0
+  bulletsShot: 0
   fpsCam: {fileID: 491150097}
   ProjLaunchPoint: {fileID: 1858502063764161331}
   playerRb: {fileID: 4721208179975993552}
