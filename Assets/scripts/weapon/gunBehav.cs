@@ -31,10 +31,12 @@ public class gunBehav : MonoBehaviour
     private darknessHealth fogHP;
     
     //laser beam
-    public ParticleSystem lightBeam; 
+    public GameObject beam;
+    public ParticleSystem lightBeam;
+    public ParticleSystem mainBeam;
     private void Awake() 
     {
-
+        // lightBeam = beam.GetComponentInChildren<ParticleSystem>()
         //ensuring mags are full
         bulletsLeft = gunType.magSize;
         RTS = true;
