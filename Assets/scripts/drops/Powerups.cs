@@ -13,9 +13,10 @@ public class Powerups : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             Debug.Log("im detected");
-            if(temporaryBuff.stateSelection == temporaryBuff.buffState.temporary ) StartCoroutine(PUActivation(collision)); //activating coroutine
+            if(temporaryBuff.stateSelection == temporaryBuff.buffState.temporary) StartCoroutine(PUActivation(collision)); //activating coroutine
             if(temporaryBuff.stateSelection == temporaryBuff.buffState.permanent) itemAdd(collision);
         }
+        Debug.Log(temporaryBuff.stateSelection);
         
     }
 

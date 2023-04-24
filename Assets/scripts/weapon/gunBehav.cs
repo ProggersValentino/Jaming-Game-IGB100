@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class gunBehav : MonoBehaviour
 {
@@ -31,12 +33,10 @@ public class gunBehav : MonoBehaviour
     private darknessHealth fogHP;
     
     //laser beam
-    public GameObject beam;
     public ParticleSystem lightBeam;
     public ParticleSystem mainBeam;
     private void Awake() 
     {
-        // lightBeam = beam.GetComponentInChildren<ParticleSystem>()
         //ensuring mags are full
         bulletsLeft = gunType.magSize;
         RTS = true;
@@ -86,15 +86,19 @@ public class gunBehav : MonoBehaviour
             }
             else if (!gunType.projectileBased && gunType.rayBased)
             {
+                //laser beam
                 lightBeam.Play(); //enables laser when player is firing
+                mainBeam.Play();
+                
+                //raycast gun
                 fireNonProj();
             }
             
         }
         else
         {
+            mainBeam.Stop();
             lightBeam.Stop(); //disables laser when player stops pressing fire button
-            // lightBeam.startLifetime = 1;
         }
     }
     
