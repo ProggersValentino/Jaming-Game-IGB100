@@ -31,7 +31,7 @@ public class gunBehav : MonoBehaviour
     private darknessHealth fogHP;
     
     //laser beam
-    public LineRenderer laserLine; 
+    public ParticleSystem lightBeam; 
     private void Awake() 
     {
 
@@ -84,14 +84,15 @@ public class gunBehav : MonoBehaviour
             }
             else if (!gunType.projectileBased && gunType.rayBased)
             {
-                laserLine.enabled = true; //enables laser when player is firing
+                lightBeam.Play(); //enables laser when player is firing
                 fireNonProj();
             }
             
         }
         else
         {
-            laserLine.enabled = false; //disables laser when player stops pressing fire button
+            lightBeam.Stop(); //disables laser when player stops pressing fire button
+            // lightBeam.startLifetime = 1;
         }
     }
     
@@ -187,16 +188,16 @@ public class gunBehav : MonoBehaviour
             }
 
             // draw the laser line between the camera and the hit point
-            laserLine.SetPosition(0, ProjLaunchPoint.position);
-            laserLine.SetPosition(1, rayHit.point);
+            // laserLine.SetPosition(0, ProjLaunchPoint.position);
+            // laserLine.SetPosition(1, rayHit.point);
         }
         else
         {
             // if the raycast did not hit anything, draw the laser line to the maximum range
             Vector3 endpoint = fpsCam.transform.position + (direction * gunType.range);
-            laserLine.SetPosition(0, ProjLaunchPoint.position);
-            laserLine.SetPosition(1, endpoint);
-        
+            // laserLine.SetPosition(0, ProjLaunchPoint.position);
+            // laserLine.SetPosition(1, endpoint);
+            
         }
         bulletsLeft--;
         Debug.Log(bulletsLeft);
