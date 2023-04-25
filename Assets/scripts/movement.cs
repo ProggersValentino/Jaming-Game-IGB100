@@ -107,7 +107,7 @@ public class movement : MonoBehaviour
         vertInput = Input.GetAxisRaw("Vertical");
         
         // Debug.Log(readyToJump);
-        // Debug.Log(grounded);
+        Debug.Log(grounded);
         
         if (Input.GetKey(keyBinds[0].keyCode) && readyToJump && grounded)
         {
@@ -174,8 +174,8 @@ public class movement : MonoBehaviour
             
         }
         
-        if(grounded) rb.AddForce(moveDirection.normalized * moveSped * 10f * Time.fixedDeltaTime, ForceMode.Impulse);
-        else if(!grounded) rb.AddForce(moveDirection.normalized * moveSped * 10f * airMulti * Time.fixedDeltaTime, ForceMode.Impulse);
+        if(grounded) rb.AddForce(moveDirection.normalized * moveSped * 10f * Time.deltaTime, ForceMode.Impulse);
+        else if(!grounded) rb.AddForce(moveDirection.normalized * moveSped * 10f * airMulti * Time.deltaTime, ForceMode.Impulse);
         
         //turn off gravity if on slope
         rb.useGravity = !Onslope();
