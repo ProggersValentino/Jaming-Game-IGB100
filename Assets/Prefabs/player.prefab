@@ -380,6 +380,8 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
 --- !u!1001 &7934941890906551535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -477,6 +479,15 @@ PrefabInstance:
 --- !u!198 &5067876546350956071 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2903173892070820552, guid: d855677017100ff43a2e6a97a044492a,
+<<<<<<< Updated upstream
+    type: 3}
+  m_PrefabInstance: {fileID: 7934941890906551535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7523293427730523329 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 465709252371107886, guid: d855677017100ff43a2e6a97a044492a,
+=======
+>>>>>>> Stashed changes
     type: 3}
   m_PrefabInstance: {fileID: 7934941890906551535}
   m_PrefabAsset: {fileID: 0}
@@ -486,6 +497,7 @@ ParticleSystem:
     type: 3}
   m_PrefabInstance: {fileID: 7934941890906551535}
   m_PrefabAsset: {fileID: 0}
+>>>>>>> d609d57efa302fac084f3f7ab2c5069c441b0cdc
 --- !u!1001 &9187478969665470727
 PrefabInstance:
   m_ObjectHideFlags: 0
