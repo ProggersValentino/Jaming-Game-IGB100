@@ -38,17 +38,19 @@ public class collision : MonoBehaviour
        {
            keyColl.k1Found = true;
            Debug.Log(keyColl.k1Found);
-           // Destroy(other.gameObject);
+           Destroy(other.gameObject);
        }
        else if (other.CompareTag("k2"))
        {
            keyColl.k2Found = true;
            Debug.Log(keyColl.k2Found);
+           Destroy(other.gameObject);
        }
        else if (other.CompareTag("k3"))
        {
            keyColl.k3Found = true;
            Debug.Log(keyColl.k3Found);
+           Destroy(other.gameObject);
        }
    }
 

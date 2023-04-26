@@ -6,10 +6,10 @@ using UnityEngine;
 public class GatewaySys : MonoBehaviour
 {
     public bool k1Found, k2Found, k3Found;
-    public Material[] keys;
-    public Material Doors;
+    public MeshRenderer[] keys;
 
-    private MeshRenderer doorMesh;
+    public GameObject doorMesh;
+    private BoxCollider portal;
     public enum doorState
     {
         locked,
@@ -21,7 +21,9 @@ public class GatewaySys : MonoBehaviour
     private void Start()
     {
         resetKCol();
-        doorMesh = GetComponent<MeshRenderer>();
+        doorMesh.SetActive(false);
+        portal = GetComponent<BoxCollider>();
+        portal.enabled = false;
     }
 
     private void Update()
@@ -35,7 +37,9 @@ public class GatewaySys : MonoBehaviour
         if (k1Found && k2Found && k3Found)
         {
             currentDoor = doorState.unlocked;
-            // doorMesh.materials = Doors;
+            doorMesh.SetActive(true);
+            portal.enabled = true;
+
         }
         else
         {
@@ -47,27 +51,19 @@ public class GatewaySys : MonoBehaviour
     {
         if (k1Found)
         {
-            Color color = keys[0].color;
-            color.a = 1f;
-            keys[0].color = color;
-            
+            keys[0].enabled = true;
+
             // Debug.Log("colour changed");
         }
 
         if (k2Found)
         {
-            Color color = keys[1].color;
-            color.a = 1f;
-            keys[1].color = color;
-
+            keys[1].enabled = true;
         }
         
         if (k3Found)
         {
-            Color color = keys[2].color;
-            color.a = 1f;
-            keys[2].color = color;
-
+            keys[2].enabled = true;
         }
     }
 
@@ -75,14 +71,7 @@ public class GatewaySys : MonoBehaviour
     {
         for (int i = 0; i < keys.Length; i++)
         {
-            Color alpha = keys[i].color;
-            alpha.a = 0.3f;
-            keys[i].color = alpha;
-
-            // if (keys[i].color != alpha)
-            // {
-            //     keys[i].color = alpha;
-            // }
+            keys[i].enabled = false;
         }
     }
 
