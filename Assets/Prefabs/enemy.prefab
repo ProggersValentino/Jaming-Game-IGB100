@@ -67,7 +67,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -233,7 +233,8 @@ MonoBehaviour:
   ProjLaunchPoint: {fileID: 1858502063764161331}
   playerRb: {fileID: 4721208179975993552}
   allowInvoke: 0
-  laserLine: {fileID: 0}
+  lightBeam: {fileID: 0}
+  mainBeam: {fileID: 0}
 --- !u!1 &4721208179975993553
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +436,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PUGen: {fileID: 2005718570277215351, guid: b87aa5510bae38e4aadfb64907068142, type: 3}
-  lootList: []
+  lootList:
+  - {fileID: 11400000, guid: 8fe8f90efbc4e0e428d0f8169917a585, type: 2}
 --- !u!1 &5648149675861437851
 GameObject:
   m_ObjectHideFlags: 0

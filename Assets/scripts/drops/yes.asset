@@ -16,7 +16,7 @@ MonoBehaviour:
   PUName: yes
   dropChance: 100
   buffSelection: 2
-  stating: 1
+  stating: 0
   amount: 100
   OGV: 0
   timeLength: 0

@@ -6,7 +6,6 @@ using UnityEngine.Serialization;
 
 public class collision : MonoBehaviour
 {
-    private bool isSafe = false;
     public healthMan stats;
     public float darkDmg;
     public float physicalDmg;

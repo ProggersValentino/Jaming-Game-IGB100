@@ -9,7 +9,9 @@ public class movement : MonoBehaviour
     private float moveSped;
     public float walkSped;
     public float sprintSped;
-    public float stamina; 
+    public float stamina;
+    public float maxStamina;
+    public float stamRegRate;
     
     [Header("Input related")]
     public Transform orientation;
@@ -70,9 +72,10 @@ public class movement : MonoBehaviour
     private void Start()
     {
         moveDirection.y = 0;
+        stamina = maxStamina;
         //necessary references 
-        
-        
+
+
         // playerHei = gameObject.transform.localScale.y;
     }
 
@@ -160,6 +163,22 @@ public class movement : MonoBehaviour
             currentState = moveState.air;
         }
         
+        if (!Input.GetKey(keyBinds[1].keyCode) && stamina < maxStamina)
+        {
+            StartCoroutine(RegenerateStamina());
+            Debug.Log(stamina);
+        }
+        
+    }
+    
+    private IEnumerator RegenerateStamina()
+    {
+        yield return new WaitForSeconds(2f); //slight delay before activating stamina regen
+        while (stamina < maxStamina)
+        {
+            stamina += stamRegRate;
+            yield return new WaitForSeconds(1f); // wait for 1 second
+        }
     }
 
     void movePlayer()
