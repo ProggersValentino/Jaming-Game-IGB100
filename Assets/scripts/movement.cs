@@ -107,7 +107,7 @@ public class movement : MonoBehaviour
         vertInput = Input.GetAxisRaw("Vertical");
         
         // Debug.Log(readyToJump);
-        Debug.Log(grounded);
+        // Debug.Log(grounded);
         
         if (Input.GetKey(keyBinds[0].keyCode) && readyToJump && grounded)
         {

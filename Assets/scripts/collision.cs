@@ -12,6 +12,10 @@ public class collision : MonoBehaviour
     public float physicalDmg;
     public float currentHealth;
     public float dmgTick;
+    
+    //collection of keys 
+    public GatewaySys keyColl;
+    
 
     private void Start()
     {
@@ -25,6 +29,26 @@ public class collision : MonoBehaviour
        {
            StartCoroutine(darkOT());
            Debug.Log(currentHealth);
+       }
+   }
+
+   private void OnTriggerEnter(Collider other)
+   {
+       if (other.CompareTag("k1"))
+       {
+           keyColl.k1Found = true;
+           Debug.Log(keyColl.k1Found);
+           // Destroy(other.gameObject);
+       }
+       else if (other.CompareTag("k2"))
+       {
+           keyColl.k2Found = true;
+           Debug.Log(keyColl.k2Found);
+       }
+       else if (other.CompareTag("k3"))
+       {
+           keyColl.k3Found = true;
+           Debug.Log(keyColl.k3Found);
        }
    }
 
