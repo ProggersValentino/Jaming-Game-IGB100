@@ -166,7 +166,6 @@ public class movement : MonoBehaviour
         if (!Input.GetKey(keyBinds[1].keyCode) && stamina < maxStamina)
         {
             StartCoroutine(RegenerateStamina());
-            Debug.Log(stamina);
         }
         
     }
