@@ -4832,6 +4832,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: KeyActiveSphere1
       objectReference: {fileID: 0}
+    - target: {fileID: 2069879793228510795, guid: b396edecab4aff04890754083fb93e1d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2140420412154788739, guid: b396edecab4aff04890754083fb93e1d,
         type: 3}
       propertyPath: m_Name
