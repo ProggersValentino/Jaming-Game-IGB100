@@ -14,6 +14,10 @@ public movement stamina;
 public Slider healthBar;
 [SerializeField] collision hs;
 
+//ammo
+public Slider ammoSlider;
+public gunBehav ammo;
+
 public static StaminaBar instance;
 
 
@@ -27,12 +31,14 @@ void Start()
 {
        staminaBar.maxValue = stamina.stamina;
         healthBar.maxValue = hs.currentHealth;
+        ammoSlider.maxValue = ammo.bulletsLeft;
 }
 
 void Update()
 {
     staminaBar.value = stamina.stamina;
     healthBar.value = hs.currentHealth;
+    ammoSlider.value = ammo.bulletsLeft;
 }
 
 }

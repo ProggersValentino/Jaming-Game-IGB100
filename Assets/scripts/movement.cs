@@ -9,7 +9,9 @@ public class movement : MonoBehaviour
     private float moveSped;
     public float walkSped;
     public float sprintSped;
-    public float stamina; 
+    public float stamina;
+    public float maxStamina;
+    public float stamRegRate;
     
     [Header("Input related")]
     public Transform orientation;
@@ -63,16 +65,18 @@ public class movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
-
+        
+        stamina = maxStamina; //setting stam for UI 
         startYScale = transform.localScale.y;
     }
 
     private void Start()
     {
         moveDirection.y = 0;
+      
         //necessary references 
-        
-        
+
+
         // playerHei = gameObject.transform.localScale.y;
     }
 
@@ -107,7 +111,7 @@ public class movement : MonoBehaviour
         vertInput = Input.GetAxisRaw("Vertical");
         
         // Debug.Log(readyToJump);
-        Debug.Log(grounded);
+        // Debug.Log(grounded);
         
         if (Input.GetKey(keyBinds[0].keyCode) && readyToJump && grounded)
         {
@@ -160,6 +164,21 @@ public class movement : MonoBehaviour
             currentState = moveState.air;
         }
         
+        if (!Input.GetKey(keyBinds[1].keyCode) && stamina < maxStamina)
+        {
+            StartCoroutine(RegenerateStamina());
+        }
+        
+    }
+    
+    private IEnumerator RegenerateStamina()
+    {
+        yield return new WaitForSeconds(2f); //slight delay before activating stamina regen
+        while (stamina < maxStamina)
+        {
+            stamina += stamRegRate;
+            yield return new WaitForSeconds(1f); // wait for 1 second
+        }
     }
 
     void movePlayer()

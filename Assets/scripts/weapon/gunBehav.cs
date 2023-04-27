@@ -35,6 +35,9 @@ public class gunBehav : MonoBehaviour
     //laser beam
     public ParticleSystem lightBeam;
     public ParticleSystem mainBeam;
+    
+    //light regen
+    public int lightRegen;
     private void Awake() 
     {
         //ensuring mags are full
@@ -99,6 +102,16 @@ public class gunBehav : MonoBehaviour
         {
             mainBeam.Stop();
             lightBeam.Stop(); //disables laser when player stops pressing fire button
+        }
+        
+        if (!Input.GetKey(KeyCode.Mouse0) && bulletsLeft < gunType.magSize)
+        {
+            StartCoroutine(regenLight());
+            Debug.Log(bulletsLeft);
+        }
+        else
+        {
+            StopCoroutine(regenLight());
         }
     }
     
@@ -242,5 +255,15 @@ public class gunBehav : MonoBehaviour
     {
         bulletsLeft = gunType.magSize;
         reloading = false;
+    }
+    
+    private IEnumerator regenLight()
+    {
+        yield return new WaitForSeconds(2f); //slight delay before activating stamina regen
+        while (bulletsLeft < gunType.magSize)
+        {
+            bulletsLeft += lightRegen;
+            yield return new WaitForSeconds(1.5f); // wait for 1 second
+        }
     }
 }

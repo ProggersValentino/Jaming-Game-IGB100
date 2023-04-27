@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4750332597383349153}
+  - component: {fileID: 444814850}
   m_Layer: 0
   m_Name: Key
-  m_TagString: Untagged
+  m_TagString: k1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,6 +34,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &444814850
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252843492268761836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &7778483152402353537
 GameObject:
   m_ObjectHideFlags: 0
@@ -4859,7 +4873,7 @@ GameObject:
   - component: {fileID: 8302156634787168303}
   m_Layer: 0
   m_Name: Holyaura
-  m_TagString: Untagged
+  m_TagString: k1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9740,6 +9754,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Key_Objective
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e3eef416327266747a5af46e4cb342ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: k1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3eef416327266747a5af46e4cb342ab, type: 3}
