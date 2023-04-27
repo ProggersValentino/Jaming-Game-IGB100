@@ -16,7 +16,7 @@ public class collision : MonoBehaviour
     public GatewaySys keyColl;
     
 
-    private void Start()
+    private void Awake()
     {
         currentHealth = stats.maxHealth;
     }

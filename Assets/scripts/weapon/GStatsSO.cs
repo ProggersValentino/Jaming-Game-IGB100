@@ -23,6 +23,7 @@ public class GStatsSO : ScriptableObject
     [Header("Raycast related stats")]
     public float range;
     public float dmg;
+    
 
     [Header("recoil")]
     public float recoilForce;

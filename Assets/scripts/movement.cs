@@ -65,14 +65,15 @@ public class movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
-
+        
+        stamina = maxStamina; //setting stam for UI 
         startYScale = transform.localScale.y;
     }
 
     private void Start()
     {
         moveDirection.y = 0;
-        stamina = maxStamina;
+      
         //necessary references 
 
 
