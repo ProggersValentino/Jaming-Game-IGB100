@@ -10796,7 +10796,7 @@ MonoBehaviour:
   healthBar: {fileID: 1690425021}
   hs: {fileID: 1034946911}
   ammoSlider: {fileID: 852556740}
-  ammo: {fileID: 0}
+  ammo: {fileID: 1298527789}
 --- !u!1001 &277778256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12757,6 +12757,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 318842062226290155, guid: 87994e047540eb34eb652e1696ea7d7c,
+        type: 3}
+      propertyPath: lightRegen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3440361255271256536, guid: 87994e047540eb34eb652e1696ea7d7c,
         type: 3}
       propertyPath: m_RootOrder
@@ -12870,7 +12875,7 @@ PrefabInstance:
     - target: {fileID: 3649696867862803030, guid: 87994e047540eb34eb652e1696ea7d7c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3649696867862803031, guid: 87994e047540eb34eb652e1696ea7d7c,
         type: 3}
@@ -12880,7 +12885,7 @@ PrefabInstance:
     - target: {fileID: 3649696867862803031, guid: 87994e047540eb34eb652e1696ea7d7c,
         type: 3}
       propertyPath: spawnInterval
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3649696867862803031, guid: 87994e047540eb34eb652e1696ea7d7c,
         type: 3}
@@ -12923,6 +12928,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3707819128958284384, guid: 87994e047540eb34eb652e1696ea7d7c,
+        type: 3}
+      propertyPath: sensX
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3707819128958284384, guid: 87994e047540eb34eb652e1696ea7d7c,
+        type: 3}
+      propertyPath: sensY
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87994e047540eb34eb652e1696ea7d7c, type: 3}
@@ -44973,6 +44988,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13bc92a8a8eb6564eaa8f35dd9d878c6, type: 3}
+--- !u!114 &1298527789 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 318842062226290155, guid: 87994e047540eb34eb652e1696ea7d7c,
+    type: 3}
+  m_PrefabInstance: {fileID: 343820193}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d5c200c37b8b8439724b6b4300c8f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1298719937
 PrefabInstance:
   m_ObjectHideFlags: 0
